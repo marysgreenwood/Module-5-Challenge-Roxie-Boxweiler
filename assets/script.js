@@ -15,12 +15,9 @@ $(document).ready(function () {
     }
   });
 
-  //array in which to store appointments
-
   //store appointments
   $(".saveBtn").on("click", function () {
-    //debugger;
-    var appointments = JSON.parse(localStorage.getItem("appointments"));
+    var appointments = JSON.parse(localStorage.getItem("appointments")) || [];
     var appmt = {
       task: $(this).siblings("textarea").val(),
       time: parseInt($(this).parent().attr("data-time")),
@@ -44,13 +41,6 @@ $(document).ready(function () {
       });
     }
   }
-  //loop through stored array to display items
-  //find div where attr("data-time") = appmnt time
-  //render appmt as inner html of div>text area
-  //console.log(savedAppointments);
-  //   savedAppointments.forEach( (appmt) => {
-  //     if (appmt.time=)
-  //   })
 
   showAppointments();
 });
